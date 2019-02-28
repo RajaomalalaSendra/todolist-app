@@ -12,17 +12,20 @@
 //
 //= require jquery3
 //= require jquery_ujs
-//= require turbolinks
 //= require activestorage
 //= require_tree .
+
 div = $("div");
 $('title'); // Sélectionne notre balise mais ne fait rien.
 console.log($('title').html());; // Affiche le contenu "J'aime les frites."
-
-for (var i = 0; i < $("div.container").length; i++) {
-	$("div.container")[i].click(function(){
-    $(this).hide(200);
-    console.log(",e and you");
+$( document ).ready(function() {
+  console.log( 'ready!' );
 });
+for (var i = 0; i < $("li").length; i++) {
+	console.log($("li")[i]);
+}
+anchor = $('a');
+for (var i = 0; i < anchor.length; i++) {
+	console.log(anchor[i]);
 }
 
