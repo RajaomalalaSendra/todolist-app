@@ -11,7 +11,18 @@
 // about supported directives.
 //
 //= require jquery3
-//= require jquery-ujs
+//= require jquery_ujs
 //= require turbolinks
 //= require activestorage
 //= require_tree .
+div = $("div");
+$('title'); // Sélectionne notre balise mais ne fait rien.
+console.log($('title').html());; // Affiche le contenu "J'aime les frites."
+
+for (var i = 0; i < $("div.container").length; i++) {
+	$("div.container")[i].click(function(){
+    $(this).hide(200);
+    console.log(",e and you");
+});
+}
+
