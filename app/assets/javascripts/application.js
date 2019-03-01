@@ -16,7 +16,24 @@
 //= require_tree .
 
 container = $("div.container");
-$("div.card")[1].click(function(){
+for (var i = 0; i < $("div.card").length; i++) {
+	$("div.card")[i].click(function(){
     	$(this).hide(200);
-    	console.log("them");
+    	console.log();
 	});
+}
+function hider()  {
+	$(document).ready(function(){
+		for (var i = 1; i < 4; i++) {
+		$('ul').eq(i).addClass("nav nav-pills");
+		$( 'div.card ul' ).eq(i).addClass("tab-content active");
+		console.log($('div.card ul').eq(i));
+		$('ul').eq(i).click(function(){
+		$( 'div.card ul' ).eq(i-1).toggle( "slow", function() {
+    		console.log("an simple essay");
+  		  });
+	    })
+	}
+    })
+}
+hider();
