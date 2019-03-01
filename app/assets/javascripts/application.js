@@ -15,17 +15,8 @@
 //= require activestorage
 //= require_tree .
 
-div = $("div");
-$('title'); // Sélectionne notre balise mais ne fait rien.
-console.log($('title').html());; // Affiche le contenu "J'aime les frites."
-$( document ).ready(function() {
-  console.log( 'ready!' );
-});
-for (var i = 0; i < $("li").length; i++) {
-	console.log($("li")[i]);
-}
-anchor = $('a');
-for (var i = 0; i < anchor.length; i++) {
-	console.log(anchor[i]);
-}
-
+container = $("div.container");
+$("div.card")[1].click(function(){
+    	$(this).hide(200);
+    	console.log("them");
+	});
