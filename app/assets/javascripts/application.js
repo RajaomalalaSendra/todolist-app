@@ -14,26 +14,37 @@
 //= require jquery_ujs
 //= require activestorage
 //= require_tree .
-
-container = $("div.container");
-for (var i = 0; i < $("div.card").length; i++) {
-	$("div.card")[i].click(function(){
-    	$(this).hide(200);
-    	console.log();
+function toggler () {
+	let container = $('.container ul li');
+	let tab = ['Essay','Reference book','Folklore'];
+	for (var i = 0; i < container.length; i++) {
+		if (container.eq(i).html() === tab[0]) {
+			container.eq(i).on('click', () => {
+		 		 $('.card').eq(0).toggle();
+			});
+		} else if (container.eq(i).html() === tab[1]) {
+			container.eq(i).on('click', () => {
+		 		 $('.card').eq(1).toggle();
+			});
+		} else if (container.eq(i).html() === tab[2]) {
+			container.eq(i).on('click', () => {
+		 		 $('.card').eq(2).toggle();
+			});
+		} 
+	}	
+}
+toggler();
+function collapser() {
+	let nav_item = $('.nav-link');
+	let circle = $('.rounded-circle');
+	let create = document.createElement("div");
+	create.className = "left";
+	for (var i = 0; i < nav_item.length - 1; i++) {
+			create.appendChild(nav_item.eq(i));
+		}
+	circle.append(create);
+	circle.eq(0).on('click', () => {
+			create.toggle();
 	});
 }
-function hider()  {
-	$(document).ready(function(){
-		for (var i = 1; i < 4; i++) {
-		$('ul').eq(i).addClass("nav nav-pills");
-		$( 'div.card ul' ).eq(i).addClass("tab-content active");
-		console.log($('div.card ul').eq(i));
-		$('ul').eq(i).click(function(){
-		$( 'div.card ul' ).eq(i-1).toggle( "slow", function() {
-    		console.log("an simple essay");
-  		  });
-	    })
-	}
-    })
-}
-hider();
+collapser();
