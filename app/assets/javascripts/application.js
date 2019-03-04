@@ -12,29 +12,41 @@
 //
 //= require jquery3
 //= require jquery_ujs
+//= require turbolinks
 //= require activestorage
 //= require_tree .
 function toggler () {
-	let container = $('.container ul li');
-	let tab = ['Essay','Reference book','Folklore'];
-	for (var i = 0; i < container.length; i++) {
-		if (container.eq(i).html() === tab[0]) {
-			container.eq(i).on('click', () => {
-		 		 $('.card').eq(0).toggle();
-			});
-		} else if (container.eq(i).html() === tab[1]) {
-			container.eq(i).on('click', () => {
-		 		 $('.card').eq(1).toggle();
-			});
-		} else if (container.eq(i).html() === tab[2]) {
-			container.eq(i).on('click', () => {
-		 		 $('.card').eq(2).toggle();
-			});
-		} 
-	}	
+	$(function() {
+		let container = $('.container ul li');
+		let tab = ['Essay','Reference book','Folklore'];
+		for (var i = 0; i < container.length; i++) {
+			if (container.eq(i).html() === tab[0]) {
+				let a = document.createElement("a");
+				a.href = "#tab1";
+				a.textContent = tab[0];
+				let the_card_0 = $('card').eq(0);
+				let div = document.createElement('div');
+				div.className = 'tab_container';
+				container.eq(i).on('click', () => {
+
+			 		 $('.card').eq(0).toggle();
+				});
+			} else if (container.eq(i).html() === tab[1]) {
+				container.eq(i).on('click', () => {
+			 		 $('.card').eq(1).toggle();
+				});
+			} else if (container.eq(i).html() === tab[2]) {
+				container.eq(i).on('click', () => {
+			 		 $('.card').eq(2).toggle();
+				});
+			} 
+		}	
+	})
+		
 }
 toggler();
 function collapser() {
+
 	let nav_item = $('.nav-link');
 	let circle = $('.rounded-circle');
 	let create = document.createElement("div");
